@@ -1,0 +1,7 @@
+{
+  "name": "control_ueb_nino",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
