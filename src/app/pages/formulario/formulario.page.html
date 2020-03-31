@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form>
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Altura / Talla<ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Peso<ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button routerLink="/pacientes" expand="block" type="submit" class="ion-no-margin">
+        <ion-text color="light">
+          Agregar
+        </ion-text>
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

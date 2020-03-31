@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "control_ueb_nino",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
