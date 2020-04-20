@@ -1,18 +1,18 @@
 
 <ion-content fullscreen="true">
 <h2 class="ion-text-center ion-padding-bottom ion-margin" color="dark" > <div>Login</div></h2>
-<form>
+<form [formGroup]="myForm">
   <ion-list lines="full" class="ion-no-margin ion-no-padding">
     <ion-item>
       <ion-label position="floating">Usuario</ion-label>
-      <ion-input></ion-input>
+      <ion-input formControlName="usuario"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input formControlName="password" type="password"></ion-input>
     </ion-item>
   </ion-list>
-    <ion-button routerLink="/home" class="ion-padding ion-margin-top"  expand="block" >
+    <ion-button (click)="login()" [disabled]="myForm.invalid" class="ion-padding ion-margin-top"  expand="block" >
       <ion-text color="light">
        Log in
       </ion-text>

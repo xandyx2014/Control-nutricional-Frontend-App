@@ -1,14 +1,14 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header >
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title>Usuario</ion-title>
+    <ion-title color="light">Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
+    <ng-container *ngIf="!estaVacio(usuario); else elseTemplate">
       <div style=" width: 100%;">
         <ion-avatar style="margin: auto;margin-top: 1rem;" >
           <img src="assets/img/avatar.svg" />
@@ -18,33 +18,39 @@
         <ion-item>
           <ion-label color="primary">CI</ion-label>
           <ion-text slot="end" >
-            123213123
+            {{usuario.ci}}
           </ion-text>
         </ion-item>
         <ion-item>
           <ion-label color="primary">Nombre</ion-label>
           <ion-text slot="end" >
-            Awesome text
+            {{usuario.nombre | titlecase}}
           </ion-text>
         </ion-item>
         <ion-item>
           <ion-label color="primary">Apellido Paterno</ion-label>
           <ion-text slot="end" >
-            Awesome text
+            {{usuario.apellidoPaterno | titlecase}}
           </ion-text>
         </ion-item>
         <ion-item>
           <ion-label color="primary">Apellido Materno</ion-label>
           <ion-text slot="end" >
-            Awesome text
+            {{usuario.apellidoMaterno | titlecase}}
           </ion-text>
         </ion-item>
         <ion-item>
           <ion-label color="primary">Numero telefonico</ion-label>
           <ion-text slot="end" >
-            Awesome text
+            {{usuario.telefono}}
           </ion-text>
         </ion-item>
       </ion-list>
+    </ng-container>
+    <ng-template #elseTemplate>
+      
+    </ng-template>
+    
+      
   
 </ion-content>

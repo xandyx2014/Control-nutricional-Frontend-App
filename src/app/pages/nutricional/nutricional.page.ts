@@ -20,6 +20,7 @@ export class NutricionalPage implements OnInit {
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
       header: 'Acciones',
+      cssClass: 'action-sheet-custom',
       buttons: [
         {
           text: 'Ver calendario',

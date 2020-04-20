@@ -1,43 +1,58 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header >
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title>Crear Usuario</ion-title>
+    <ion-title color="light">Crear Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true">
-  <form onsubmit="processForm(event)">
+  <form [formGroup]="myForm">
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
       <ion-item>
-        <ion-label position="stacked">Carnet identidad <ion-text color="danger">*</ion-text>
+        <ion-label position="stacked">Usuario <ion-text color="danger">*</ion-text>
         </ion-label>
-        <ion-input type="text" ></ion-input>
+        <ion-input formControlName="usuario" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Contraseña <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Nombre <ion-text color="danger">*</ion-text>
         </ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input formControlName="nombre" type="text"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Apellido Paterno<ion-text color="danger">*</ion-text>
         </ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input formControlName="apellidoPaterno" type="text"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Apellido Materno<ion-text color="danger">*</ion-text>
         </ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input formControlName="apellidoMaterno" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Carnet identidad <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input formControlName="ci"  type="text" ></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Numero Telefonico
         </ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input formControlName="telefono" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Email
+        </ion-label>
+        <ion-input formControlName="email" type="text"></ion-input>
       </ion-item>
     </ion-list>
   </form>
-  <ion-button routerLink="/pacientes" class="ion-margin"  expand="block" fill="outline" >
+  <ion-button (click)="crear()" [disabled]="myForm.invalid" class="ion-margin"  expand="block" fill="outline" >
     Crear
   </ion-button>
 </ion-content>

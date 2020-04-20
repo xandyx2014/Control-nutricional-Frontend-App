@@ -8,7 +8,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home',
+    path: 'home/:id',
     loadChildren: () => import('./pages/home/folder.module').then( m => m.FolderPageModule)
   },
   {
@@ -54,6 +54,10 @@ const routes: Routes = [
   {
     path: 'usuario',
     loadChildren: () => import('./pages/usuario/usuario.module').then( m => m.UsuarioPageModule)
+  },
+  {
+    path: 'nutribebe',
+    loadChildren: () => import('./pages/nutribebe/nutribebe.module').then( m => m.NutribebePageModule)
   }
 ];
 

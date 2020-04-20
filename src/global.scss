@@ -31,3 +31,19 @@ ion-menu-button {
   ion-content ion-toolbar {
     --background: transparent;
   }
+  .action-sheet-custom {
+    .action-sheet-title {
+      color: var(--ion-color-light);
+    }
+    .path {
+      color: white;
+    }
+    svg {
+      color: white;
+    }
+    ion-icon {
+      color: var(--ion-color-light) !important;
+    }
+    --background: var(--ion-color-primary);
+    --button-color: var(--ion-color-light);
+  }
