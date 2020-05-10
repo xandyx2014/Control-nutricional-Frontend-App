@@ -1,0 +1,30 @@
+<form [formGroup]="myForm">
+  <ion-list lines="full" class="ion-no-margin ion-no-padding">
+    <ion-list-header>
+      <ion-label>Datos :</ion-label>
+    </ion-list-header>
+    <br>
+    <br>
+    <ion-item>
+      <ion-label>Fecha Inicial</ion-label>
+      <ion-datetime formControlName="fechaInicial" displayFormat="DD MM YY" placeholder="Select Date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fecha Final</ion-label>
+      <ion-datetime formControlName="fechaSiguiente" displayFormat="DD MM YY" placeholder="Select Date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Descripcion</ion-label>
+      <ion-textarea formControlName="descripcion" placeholder="Pequeña descripcion..." maxlength="100"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <div class="ion-padding" >
+    <ion-button (click)="crear()" expand="block" type="submit" class="ion-no-margin" [disabled]="myForm.invalid">Crear Control</ion-button>
+  </div>
+</form>
+<ion-fab (click)="cerrarModal()"  vertical="top" horizontal="end" slot="fixed" style="margin-top: 0;margin-left: 0;">
+  <ion-fab-button color="danger">
+    <ion-icon color="light" name="close"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

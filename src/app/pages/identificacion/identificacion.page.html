@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">Identificacion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+  <ng-container *ngIf="datas.length; else elseTemplate">
+    <ion-card *ngFor="let item of datas; let i = index" mode="ios" (click)="presentActionSheet(item)">
+      <ion-card-header>
+        <ion-card-subtitle>N. {{ i + 1}} Identificacion</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label color="primary">Nombre Padre:</ion-label>
+          </ion-item>
+          <ion-item>
+            {{ item.nombrePadre}}
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">Nombre Madre:</ion-label>
+          </ion-item>
+          <ion-item>
+            {{ item.nombreMadre}}
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">Fecha Nacimiento Padre :</ion-label>
+          </ion-item>
+          <ion-item>
+            {{ item.fechaNacimientoPadre | date:'dd-MM-yyyy' }}
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">Fecha Nacimiento Madre :</ion-label>
+          </ion-item>
+          <ion-item>
+            {{ item.fechaNacimientoMadre | date:'dd-MM-yyyy' }}
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">Direccion :</ion-label>
+          </ion-item>
+          <ion-item>
+            {{ item.direccion | titlecase}}
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">Departamento :</ion-label>
+          </ion-item>
+          <ion-item>
+            {{ item.departamento | titlecase }}
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">Provincia :</ion-label>
+          </ion-item>
+          <ion-item>
+            {{ item.provincia | titlecase}}
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">Nohc :</ion-label>
+          </ion-item>
+          <ion-item>
+            {{ item.nohc }}
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">Grupo Sanguineo :</ion-label>
+          </ion-item>
+          <ion-item>
+            {{ item.grupoSanguineo }}
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">FactorRh :</ion-label>
+          </ion-item>
+          <ion-item>
+            {{ item.factorRh }}
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+  <ng-template #elseTemplate>
+      <ion-text color="light" class="ion-align-center">
+        <h3>No hay datos...</h3>
+      </ion-text>
+  </ng-template>
+  
+  
+  
+</ion-content>
+<ion-fab (click)="presentModal()"  vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="tertiary">
+    <ion-icon color="light" color="primary" name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

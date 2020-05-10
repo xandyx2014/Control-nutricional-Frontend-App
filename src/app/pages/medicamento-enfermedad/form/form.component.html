@@ -1,0 +1,27 @@
+<ion-content>
+  <form [formGroup]="myForm" class="ion-padding">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Campos</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label position="floating">Clasificacion: <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="clasificacion"  type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Inicio <ion-text color="danger">*</ion-text></ion-label>
+        <ion-datetime  formControlName="inicio" display-format="DD.MM.YYYY"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Final <ion-text color="danger">*</ion-text></ion-label>
+        <ion-datetime  formControlName="final" display-format="DD.MM.YYYY"></ion-datetime>
+      </ion-item>
+    </ion-list>
+    
+    <ion-button (click)="crear()" expand="full"  color="primary" type="submit" [disabled]="myForm.invalid">
+      <ion-text color="light">
+        Crear
+      </ion-text>
+    </ion-button>
+  </form>
+</ion-content>

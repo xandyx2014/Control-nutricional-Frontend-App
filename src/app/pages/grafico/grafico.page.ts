@@ -1,6 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
+import { Subscription } from 'rxjs';
+import { Historial } from 'src/app/interface/historial.interface';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { PacienteService } from 'src/app/services/paciente.service';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-grafico',
@@ -9,7 +15,8 @@ import { Color, BaseChartDirective, Label } from 'ng2-charts';
 })
 export class GraficoPage implements OnInit {
   public lineChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A', pointRadius: 7, }
+    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A', pointRadius: 7, },
+    { data: [60, 50, 90, 82, 72, 58, 50], label: 'Series B', pointRadius: 7, }
   ];
   public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
@@ -80,11 +87,54 @@ export class GraficoPage implements OnInit {
   ];
   public lineChartLegend = true;
   public lineChartType = 'line';
-
+  private subscription = new Subscription();
+  public historial: Historial[] = [];
+  private idPaciente: number;
   @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective;
 
-  constructor() { }
+  constructor(
+    private activateRoute: ActivatedRoute,
+    private pacienteService: PacienteService,
+  ) { }
 
   ngOnInit() {
+    this.subscription.add(
+      this.activateRoute.params
+        .pipe(
+          switchMap(({ id }) => {
+            this.idPaciente = id;
+            return this.pacienteService.historial(id);
+          })
+        )
+        .subscribe( resp =>  {
+          this.historial = resp;
+          this.llenarDatos();
+          console.log( this.historial);
+        })
+    );
+  }
+  llenarDatos() {
+    this.lineChartData = this.lineChartData.map( (data, index) => {
+      if (index === 0) {
+        return {
+          data: this.obtenerValor('peso'),
+          label: 'Peso',
+          pointRadius: 7
+        };
+      }
+      return {
+        data: this.obtenerValor('tamagno'),
+        label: 'Tamaño',
+        pointRadius: 7
+      };
+    }) as ChartDataSets[];
+    this.lineChartLabels = this.obtenerValor('createdAt').map( value => format(new Date(value), 'MM/dd/yy'));
+    console.log(this.lineChartData);
+  }
+  obtenerValor(property): any[] {
+    if (this.historial.length) {
+      return this.historial.map( value => value[property]);
+    }
+    return [];
   }
 }

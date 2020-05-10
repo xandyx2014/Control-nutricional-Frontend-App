@@ -1,0 +1,29 @@
+<ion-content>
+  <form [formGroup]="myForm" class="ion-padding">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Campos</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Tipo :</ion-label>
+        <ion-input type="text" formControlName="tipo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Personal :</ion-label>
+        <ion-input type="text" formControlName="personal"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Familiar :</ion-label>
+        <ion-input type="text" formControlName="familiar"></ion-input>
+      </ion-item>
+      
+
+    </ion-list>
+    
+    <ion-button (click)="crear()" expand="full"  color="primary" type="submit" [disabled]="myForm.invalid">
+      <ion-text color="light">
+        Crear
+      </ion-text>
+    </ion-button>
+  </form>
+</ion-content>

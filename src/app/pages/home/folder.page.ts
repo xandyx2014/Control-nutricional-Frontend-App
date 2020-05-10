@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, of } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 import { PacienteService } from 'src/app/services/paciente.service';
 import { Historial } from 'src/app/interface/historial.interface';
 import { format, formatISO } from 'date-fns';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-folder',
@@ -15,26 +16,36 @@ import { format, formatISO } from 'date-fns';
 export class FolderPage implements OnInit {
   private subscription = new Subscription();
   public historial: Historial[] = [];
+  private idPaciente: number;
   constructor(
     private menuCtrl: MenuController,
     private activateRoute: ActivatedRoute,
+    public authService: AuthService,
     private pacienteService: PacienteService,
+    private router: Router
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.authService.isDoctor();
+    console.log(await this.menuCtrl.isOpen());
   }
-  ionViewWillEnter() {
+  async ionViewDidEnter() {
+      this.menuCtrl.enable(true);
+  }
+  async ionViewWillEnter() {
     this.subscription.add(
       this.activateRoute.params
         .pipe(
-          switchMap(({ id }) => this.pacienteService.historial(id))
+          switchMap(({ id }) => {
+            this.idPaciente = id;
+            return this.pacienteService.historial(id);
+          })
         )
         .subscribe( resp =>  {
           this.historial = resp;
           // console.log(resp);
         })
     );
-    this.menuCtrl.enable(true);
   }
   ionViewWillLeave() {
     this.subscription.unsubscribe();
@@ -44,6 +55,12 @@ export class FolderPage implements OnInit {
     // console.log();
     console.log(formatDate);
     return formatDate;
+  }
+  irCalculo(item: Historial) {
+    this.router.navigate(['/calculo'], { queryParams: {...item, Doctor: null}});
+  }
+  verPagina() {
+    this.router.navigate(['/grafico', this.idPaciente]);
   }
 
 }

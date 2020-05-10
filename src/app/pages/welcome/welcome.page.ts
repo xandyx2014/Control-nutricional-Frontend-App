@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-welcome',
@@ -16,9 +18,18 @@ export class WelcomePage implements OnInit {
       prevEl: '.swiper-button-prev',
     },
   };
-  constructor() { }
+  constructor(
+    private menuCtrl: MenuController,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
+  }
+  ionViewWillEnter() {
+    this.authService.logout();
+  }
+  ionViewDidEnter() {
+    this.menuCtrl.enable(false);
   }
 
 }

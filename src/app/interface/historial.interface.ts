@@ -10,5 +10,6 @@ export interface Historial {
     createdAt: string;
     updatedAt: string;
     Doctor: Doctor;
+    genero: string;
 }
 

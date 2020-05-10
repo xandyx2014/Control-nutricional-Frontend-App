@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">Alergias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+  <ng-container *ngIf="alergias.length; else elseTemplate">
+    <ion-card *ngFor="let item of alergias; let i = index" mode="ios" (click)="presentActionSheet(item)">
+      <ion-card-header>
+        <ion-card-subtitle>N. {{ i + 1}} Alergia</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label color="primary">Tipo Alergia:</ion-label>
+          </ion-item>
+          <ion-item>
+            {{ item.tipo }}
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">Descripcion :</ion-label>
+          </ion-item>
+          <ion-item>
+            {{ item.descripcion }}
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+  <ng-template #elseTemplate>
+      <ion-text color="light" class="ion-align-center">
+        <h3>No hay datos...</h3>
+      </ion-text>
+  </ng-template>
+  
+  
+  
+</ion-content>
+<ion-fab (click)="presentModal()"  vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="tertiary">
+    <ion-icon color="light" color="primary" name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

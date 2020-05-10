@@ -3,6 +3,7 @@ import { ActionSheetController, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { PacienteService } from 'src/app/services/paciente.service';
 import { Usuario } from 'src/app/interface/user.interface';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-pacientes',
@@ -15,17 +16,22 @@ export class PacientesPage implements OnInit {
     public actionSheetController: ActionSheetController,
     private router: Router,
     private menuCtrl: MenuController,
-    private pacienteService: PacienteService
+    private pacienteService: PacienteService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
+    this.authService.isDoctor();
   }
-  ionViewWillEnter() {
+  async ionViewWillEnter() {
     this.menuCtrl.enable(true);
     this.pacienteService.mostrarTodos().subscribe( (resp) => {
       this.pacientes = resp.data;
       console.log(this.pacientes);
     });
+  }
+  async ionViewDidEnter() {
+    this.menuCtrl.enable(true);
   }
   async presentActionSheet(paciente: Usuario) {
     const actionSheet = await this.actionSheetController.create({
@@ -43,7 +49,16 @@ export class PacientesPage implements OnInit {
           text: 'Ver informacion',
           icon: 'person-circle',
           handler: () => {
-            this.router.navigate(['usuario'], { queryParams: {...paciente}});
+            const id = paciente.Paciente.id;
+            paciente.Paciente = null;
+            this.router.navigate(['usuario'], { queryParams: {...paciente, paciente_id: id}});
+          }
+        },
+        {
+          text: 'Ver Control Nutricional',
+          icon: 'stopwatch',
+          handler: () => {
+            this.router.navigate(['/nutricional', paciente.Paciente.id]);
           }
         },
         {

@@ -1,0 +1,26 @@
+
+<form [formGroup]="myForm" class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Campos</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label position="floating">Razon<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input formControlName="razon"  type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Año <ion-text color="danger">*</ion-text></ion-label>
+      <ion-datetime  formControlName="agno" display-format="DD.MM.YYYY"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Evolucion <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input formControlName="evolucion"  type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+  
+  <ion-button (click)="crear()" expand="full"  color="primary" type="submit" [disabled]="myForm.invalid">
+    <ion-text color="light">
+      Crear
+    </ion-text>
+  </ion-button>
+</form>

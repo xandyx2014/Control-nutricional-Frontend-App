@@ -40,6 +40,12 @@
               },
               {
                 "input": "node_modules/viewerjs/dist/viewer.min.css"
+              },
+              {
+                "input": "node_modules/flatpickr/dist/flatpickr.min.css"
+              },
+              {
+                "input": "node_modules/flatpickr/dist/themes/confetti.css"
               }
             ],
             "scripts": []

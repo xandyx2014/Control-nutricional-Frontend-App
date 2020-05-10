@@ -7,6 +7,7 @@ export interface RespUsuario {
     data: Usuario;
     doctor?: Persona;
     paciente?: Persona;
+    message?: string;
     token: string;
 }
 
@@ -23,6 +24,7 @@ export interface Usuario {
     tipo: string;
     createdAt?: string;
     updatedAt?: string;
+    paciente_id?: string;
     Paciente?: Paciente;
 }
 export interface Paciente {
@@ -40,4 +42,17 @@ export interface Persona {
     usuario_id: number;
     createdAt: string;
     updatedAt: string;
+}
+export enum EstadoNutricion {
+    grave = 'Desnutricion Grave',
+    moderada = 'Desnutricion aguda moderada',
+    leve = 'Desnutricion aguda leve',
+    normal = 'No tiene desnutricion aguda leve',
+    mediana = 'Nutricion normal',
+    sobrePeso = 'Nutricion con Sobrepeso'
+}
+export enum EstadoMedida {
+    grave = 'Talla / Longitud baja',
+    media = 'Riesgo de Talla / Longitud Baja',
+    normal = 'Normal'
 }

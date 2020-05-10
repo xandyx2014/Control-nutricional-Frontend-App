@@ -8,18 +8,28 @@
 </ion-header>
 
 <ion-content>
-  <div class="flex">
-    <div class="flex-item">
-      <div style="display: block;">
-      <canvas baseChart width="100vw" height="100vh" responsible="true"
-                  [datasets]="lineChartData"
-                  [labels]="lineChartLabels"
-                  [options]="lineChartOptions"
-                  [colors]="lineChartColors"
-                  [legend]="lineChartLegend"
-                  [chartType]="lineChartType"
-                  ></canvas>
+  <ng-container *ngIf="historial.length; else elseTemplate">
+    <div class="flex">
+      <div class="flex-item">
+        <div style="display: block;">
+        <canvas baseChart width="100vw" height="100vh" responsible="true"
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [options]="lineChartOptions"
+                    [colors]="lineChartColors"
+                    [legend]="lineChartLegend"
+                    [chartType]="lineChartType"
+                    ></canvas>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <ion-text color="primary" class="ion-text-center">
+      <h4>Sin datos del paciente...</h4>
+     
+    </ion-text>
+  </ng-template>
+  
+  
 </ion-content>

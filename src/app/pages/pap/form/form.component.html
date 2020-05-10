@@ -1,0 +1,25 @@
+<ion-content>
+  <form [formGroup]="myForm" class="ion-padding">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Campos</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Fecha</ion-label>
+        <ion-datetime formControlName="fecha" display-format="DD.MM.YYYY"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Resultado :</ion-label>
+        <ion-textarea formControlName="resultado" maxlength="199"></ion-textarea>
+      </ion-item>
+      
+
+    </ion-list>
+    
+    <ion-button (click)="crear()" expand="full"  color="primary" type="submit" [disabled]="myForm.invalid">
+      <ion-text color="light">
+        Crear
+      </ion-text>
+    </ion-button>
+  </form>
+</ion-content>

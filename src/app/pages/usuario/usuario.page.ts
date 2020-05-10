@@ -14,6 +14,7 @@ export class UsuarioPage implements OnInit {
   ) { }
   ionViewWillEnter() {
     this.activatedRoute.queryParams.subscribe((resp: Usuario) => {
+      console.log(resp);
       this.usuario = resp;
       // console.log(resp);
       // console.log(isEmpty(resp));

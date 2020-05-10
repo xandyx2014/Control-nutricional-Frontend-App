@@ -14,122 +14,41 @@
         Historial del control nutricional
       </ion-text>
     </ion-list-header>
-    <ion-card mode="ios">
-      <ion-card-content  (click)="presentActionSheet()">
+    <ion-card mode="ios" *ngFor="let item of nutrientes; let i = index">
+      <ion-card-content  (click)="presentActionSheet(item)">
           <ion-label>
             <ion-text color="primary">
-              <h2>Finn</h2>
+              <h2>No {{ i + 1}}</h2>
             </ion-text>
-            <h3>I'm a big deal</h3>
-            <p>Listen, I've had a pretty messed up day...</p>
-            <ion-chip  color="success">
-              <ion-icon name="checkmark" ></ion-icon>
-              <ion-label>completo</ion-label>
-            </ion-chip>
-            <ion-chip  color="warning">
-              <ion-icon name="alert" ></ion-icon>
-              <ion-label>incompleto</ion-label>
-            </ion-chip>
+            <h3>Fecha Inicial : <ion-badge color="secondary" mode="ios">{{item.fechaInicial | date:'dd/MM/yyyy'}}</ion-badge></h3>
+            <h3>Fecha Siguiente : <ion-badge color="secondary" mode="ios">{{item.fechaSiguiente | date:'dd/MM/yyyy'}}</ion-badge></h3>
+            <p>{{ item.descripcion }}</p>
+            <ng-container *ngIf="item.estado; else elseTemplate">
+              <ion-chip  color="success">
+                <ion-icon name="checkmark" ></ion-icon>
+                <ion-label>completo</ion-label>
+              </ion-chip>
+            </ng-container>
+            <ng-template #elseTemplate>
+              <ion-chip  color="warning">
+                <ion-icon name="alert" ></ion-icon>
+                <ion-label>incompleto</ion-label>
+              </ion-chip>
+            </ng-template>
+            
+            
+            
           </ion-label>
       </ion-card-content>
     </ion-card>
-    <ion-card mode="ios">
-      <ion-card-content  (click)="presentActionSheet()">
-          <ion-label>
-            <ion-text color="primary">
-              <h2>Finn</h2>
-            </ion-text>
-            <h3>I'm a big deal</h3>
-            <p>Listen, I've had a pretty messed up day...</p>
-            <ion-chip  color="success">
-              <ion-icon name="checkmark" ></ion-icon>
-              <ion-label>completo</ion-label>
-            </ion-chip>
-            <ion-chip  color="warning">
-              <ion-icon name="alert" ></ion-icon>
-              <ion-label>incompleto</ion-label>
-            </ion-chip>
-          </ion-label>
-      </ion-card-content>
-    </ion-card>
-    <ion-card mode="ios">
-      <ion-card-content  (click)="presentActionSheet()">
-          <ion-label>
-            <ion-text color="primary">
-              <h2>Finn</h2>
-            </ion-text>
-            <h3>I'm a big deal</h3>
-            <p>Listen, I've had a pretty messed up day...</p>
-            <ion-chip  color="success">
-              <ion-icon name="checkmark" ></ion-icon>
-              <ion-label>completo</ion-label>
-            </ion-chip>
-            <ion-chip  color="warning">
-              <ion-icon name="alert" ></ion-icon>
-              <ion-label>incompleto</ion-label>
-            </ion-chip>
-          </ion-label>
-      </ion-card-content>
-    </ion-card>
-    <ion-card mode="ios">
-      <ion-card-content  (click)="presentActionSheet()">
-          <ion-label>
-            <ion-text color="primary">
-              <h2>Finn</h2>
-            </ion-text>
-            <h3>I'm a big deal</h3>
-            <p>Listen, I've had a pretty messed up day...</p>
-            <ion-chip  color="success">
-              <ion-icon name="checkmark" ></ion-icon>
-              <ion-label>completo</ion-label>
-            </ion-chip>
-            <ion-chip  color="warning">
-              <ion-icon name="alert" ></ion-icon>
-              <ion-label>incompleto</ion-label>
-            </ion-chip>
-          </ion-label>
-      </ion-card-content>
-    </ion-card>
-    <ion-card mode="ios">
-      <ion-card-content  (click)="presentActionSheet()">
-          <ion-label>
-            <ion-text color="primary">
-              <h2>Finn</h2>
-            </ion-text>
-            <h3>I'm a big deal</h3>
-            <p>Listen, I've had a pretty messed up day...</p>
-            <ion-chip  color="success">
-              <ion-icon name="checkmark" ></ion-icon>
-              <ion-label>completo</ion-label>
-            </ion-chip>
-            <ion-chip  color="warning">
-              <ion-icon name="alert" ></ion-icon>
-              <ion-label>incompleto</ion-label>
-            </ion-chip>
-          </ion-label>
-      </ion-card-content>
-    </ion-card>
-    <ion-card mode="ios">
-      <ion-card-content  (click)="presentActionSheet()">
-          <ion-label>
-            <ion-text color="primary">
-              <h2>Finn</h2>
-            </ion-text>
-            <h3>I'm a big deal</h3>
-            <p>Listen, I've had a pretty messed up day...</p>
-            <ion-chip  color="success">
-              <ion-icon name="checkmark" ></ion-icon>
-              <ion-label>completo</ion-label>
-            </ion-chip>
-            <ion-chip  color="warning">
-              <ion-icon name="alert" ></ion-icon>
-              <ion-label>incompleto</ion-label>
-            </ion-chip>
-          </ion-label>
-      </ion-card-content>
-    </ion-card>
+
     
 
     
   </ion-list>
+  <ion-fab (click)="presentModal()" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon color="light" name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

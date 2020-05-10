@@ -10,11 +10,26 @@
           </ion-list-header>
           <ion-note>U.E.B</ion-note>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="p.url" lines="none"
-              detail="false" [class.selected]="selectedIndex == i">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item (click)="obtenerId('/home')" *ngIf="!show">
+              <ion-icon slot="start" name="book"></ion-icon>
+              <ion-label>Historial</ion-label>
+            </ion-item>
+            <ion-item routerLink="/pacientes" *ngIf="show">
+              <ion-icon slot="start" name="people"></ion-icon>
+              <ion-label>Pacientes</ion-label>
+            </ion-item>
+            <ion-item (click)="obtenerId('/nutricional')" *ngIf="!show">
+              <ion-icon slot="start" name="time"></ion-icon>
+              <ion-label>Control Nutricional</ion-label>
+            </ion-item>
+            <ion-item routerLink="/nutribebe">
+              <ion-icon slot="start" name="heart"></ion-icon>
+              <ion-label>Nutribebe</ion-label>
+            </ion-item>
+            <ion-item routerLink="/welcome">
+              <ion-icon slot="start" name="exit"></ion-icon>
+              <ion-label>Salir</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>

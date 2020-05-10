@@ -45,6 +45,74 @@
             {{usuario.telefono}}
           </ion-text>
         </ion-item>
+        <ion-list-header>
+          <ion-label>Historial Medico</ion-label>
+        </ion-list-header>
+        <ion-item class="ion-activatable ripple-parent" [routerLink]="['/alergia', usuario.paciente_id]">
+          <ion-label color="primary" >Alergias</ion-label>
+          <ion-icon slot="end" name="chevron-forward"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item class="ion-activatable ripple-parent" [routerLink]="['/antecedente', usuario.paciente_id]">
+          <ion-label color="primary" >Antecedentes</ion-label>
+          <ion-icon slot="end" name="chevron-forward"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item class="ion-activatable ripple-parent"  [routerLink]="['/antecedentePatologico', usuario.paciente_id]">
+          <ion-label color="primary">Antecedentes Patologico</ion-label>
+          <ion-icon slot="end" name="chevron-forward"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item class="ion-activatable ripple-parent" [routerLink]="['/anticonceptivo', usuario.paciente_id]">
+          <ion-label color="primary">Anticonceptivos</ion-label>
+          <ion-icon slot="end" name="chevron-forward"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item class="ion-activatable ripple-parent" [routerLink]="['/embarazo', usuario.paciente_id]">
+          <ion-label color="primary">Embarazos</ion-label>
+          <ion-icon slot="end" name="chevron-forward"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item class="ion-activatable ripple-parent" [routerLink]="['/factorRiesgo', usuario.paciente_id]" >
+          <ion-label color="primary">Factor Riesgos</ion-label>
+          <ion-icon slot="end" name="chevron-forward"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item class="ion-activatable ripple-parent" [routerLink]="['/factorRiesgoSocial', usuario.paciente_id]">
+          <ion-label color="primary">Factor Riesgos Social</ion-label>
+          <ion-icon slot="end" name="chevron-forward"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item class="ion-activatable ripple-parent" [routerLink]="['/identificacion', usuario.paciente_id]">
+          <ion-label color="primary">Identificacion del usuario</ion-label>
+          <ion-icon slot="end" name="chevron-forward"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item class="ion-activatable ripple-parent"  [routerLink]="['/medicamentoEnfermedad', usuario.paciente_id]">
+          <ion-label color="primary">Medicamento Enfermedad</ion-label>
+          <ion-icon slot="end" name="chevron-forward"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item class="ion-activatable ripple-parent"  [routerLink]="['/observacion', usuario.paciente_id]">
+          <ion-label color="primary">Observacion</ion-label>
+          <ion-icon slot="end" name="chevron-forward"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item class="ion-activatable ripple-parent" [routerLink]="['/pap', usuario.paciente_id]">
+          <ion-label color="primary">PAP</ion-label>
+          <ion-icon slot="end" name="chevron-forward"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item class="ion-activatable ripple-parent" [routerLink]="['/riesgo', usuario.paciente_id]">
+          <ion-label color="primary">Riesgo</ion-label>
+          <ion-icon slot="end" name="chevron-forward"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item class="ion-activatable ripple-parent">
+          <ion-label color="primary">Vacunas</ion-label>
+          <ion-icon slot="end" name="chevron-forward"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
       </ion-list>
     </ng-container>
     <ng-template #elseTemplate>

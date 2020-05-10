@@ -15,11 +15,6 @@ export const PAGE_URL = [
       icon: 'time'
     },
     {
-      title: 'Esquema P.A.I',
-      url: '/pai',
-      icon: 'heart'
-    },
-    {
       title: 'Nutribebe',
       url: '/nutribebe',
       icon: 'heart'

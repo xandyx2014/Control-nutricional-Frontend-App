@@ -14,9 +14,9 @@
         Historial
       </ion-list-header>
   
-      <ion-item *ngFor="let item of historial">
+      <ion-item *ngFor="let item of historial" (click)="irCalculo(item)">
         
-        <ion-label routerLink="/calculo">
+        <ion-label>
           <ion-text color="primary">
             <h2> Personal medico: </h2>
           </ion-text>
@@ -44,7 +44,7 @@
   
   
   <ion-fab *ngIf="historial.length;" vertical="bottom" horizontal="end" slot="fixed" >
-    <ion-fab-button color="primary" routerLink="/grafico">
+    <ion-fab-button (click)="verPagina()" color="primary">
       <ion-icon color="light" name="stats-chart"></ion-icon>
     </ion-fab-button>
   </ion-fab>

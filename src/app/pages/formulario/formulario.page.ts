@@ -51,11 +51,12 @@ export class FormularioPage implements OnInit {
       tamagno: [0, [Validators.required, Validators.min(0)]],
       doctor_id: [0, [Validators.required]],
       paciente_id: [0, [Validators.required]],
+      genero: ['', Validators.required],
       edad: ['', [Validators.required]]
     });
   }
   crear() {
-    // console.log(this.myForm.value);
+    console.log(this.myForm.value);
     this.historialService.crear(this.myForm.value)
       .subscribe(async  (resp)  => {
         console.log(resp);

@@ -1,0 +1,59 @@
+<ion-content>
+  <form [formGroup]="myForm" class="ion-padding">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Campos</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label position="floating">Nombre Padre<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="nombrePadre"  type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nombre Madre<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="nombreMadre"  type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Fecha Nacimiento Padre <ion-text color="danger">*</ion-text></ion-label>
+        <ion-datetime  formControlName="fechaNacimientoPadre" display-format="DD.MM.YYYY"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Fecha Nacimiento Madre<ion-text color="danger">*</ion-text></ion-label>
+        <ion-datetime  formControlName="fechaNacimientoMadre" display-format="DD.MM.YYYY"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Direccion <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="direccion"  type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Departamento <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="departamento"  type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Provincia <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="provincia"  type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nohc <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="nohc"  type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Numero de ley <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="noley"  type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Grupo Sanguineo <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="grupoSanguineo"  type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Factor Rh <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="factorRh"  type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+    
+    <ion-button (click)="crear()" expand="full"  color="primary" type="submit" [disabled]="myForm.invalid">
+      <ion-text color="light">
+        Crear
+      </ion-text>
+    </ion-button>
+  </form>
+</ion-content>

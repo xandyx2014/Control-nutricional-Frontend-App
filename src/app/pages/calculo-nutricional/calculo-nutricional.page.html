@@ -8,5 +8,24 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Descripcion</ion-label>
+      <ion-textarea [ngModel]="descripcion" disabled></ion-textarea>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Fecha Inicial<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input  id="myID"  type="text" disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Fecha Siguiente <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input id="myID2" type="text" disabled></ion-input>
+    </ion-item>
+    
+  </ion-list>
+  <!-- <ion-input type="text" placeholder="Awesome Input"></ion-input>
+  <input type="text" style="width: 90% !important;" name="" >
+  <br>
+  <input type="text" style="width: 90% !important;" name="" > -->
 </ion-content>
