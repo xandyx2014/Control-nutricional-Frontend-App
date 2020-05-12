@@ -14,4 +14,7 @@ export class HistorialService {
   crear(historial: Historial) {
     return this.http.post<{data: Historial}>(`${URL_API}/historial`, {...historial});
   }
+  borrar(dataId) {
+    return this.http.delete(`${this.url}/historial/${dataId}`);
+  }
 }

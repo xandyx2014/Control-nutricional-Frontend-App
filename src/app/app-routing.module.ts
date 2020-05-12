@@ -149,6 +149,10 @@ const routes: Routes = [
       m => m.RiesgoModule
     ),
     canLoad: [AuthGuard]
+  },
+  {
+    path: 'nosotros',
+    loadChildren: () => import('./pages/nosotros/nosotros.module').then( m => m.NosotrosPageModule)
   }
 ];
 

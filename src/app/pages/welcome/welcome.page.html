@@ -1,39 +1,58 @@
-
 <ion-content color="primary">
-  <ion-slides [options]="slideOpts" >
+  <ion-slides [options]="slideOpts">
 
     <ion-slide>
       <div class="slide">
-        <img src="assets/img/calculadora.svg"/>
-        <h2>Welcome</h2>
-        <p>The is a practical preview of the ionic framework in action, and a demonstration of proper code use.</p>
-        <ion-button routerLink="/login" color="light"  expand="block" style="margin-left: 1em ; margin-right: 1em;">Login</ion-button>
+        <!-- <img src="assets/img/calculadora.svg"/> -->
+        <!-- <ion-img style="height: 150px;"></ion-img> -->
+        <img src="assets/logo_app.png" alt="" srcset="" style="border-radius: 10px;">
+        <h2>Bienvenido</h2>
+        <p>Su salud es nuestra prioridad.</p>
+        <ion-button routerLink="/login" color="light" expand="block" style="margin-left: 1em ; margin-right: 1em;">Login
+        </ion-button>
       </div>
     </ion-slide>
 
     <ion-slide>
-      <img src="assets/img/calculadora.svg"/>
-      <h2>What is Ionic?</h2>
-      <p>is an open source SDK that enables developers to build logies like HTML, CSS, and JavaScript.</p>
-      <ion-button color="light"  expand="block" style="margin-left: 1em ; margin-right: 1em;">Login</ion-button>
+      <img src="assets/img/online_information_4ui6.svg" style="height: 25vh; margin-bottom: 0.5em;" />
+      <h2>¿Quienes somos?</h2>
+      <p>Es un centro de salud de primer nivel, cuya finalidad es la promover estilos de vida saludables para el
+        mantenimiento de la salud y la prevención de las enfermedades en los habitantes que, como usted pertenecen a las
+        UV 15, 16 Y 18.
+        ¡Recuerde que la prevención es la mejor medicina! ...
+      </p>
+      <ion-button routerLink="/login" color="light" expand="block" style="margin-left: 1em ; margin-right: 1em;">Login
+      </ion-button>
     </ion-slide>
 
     <ion-slide>
-      <img src="assets/img/calculadora.svg"/>
-      <h2>What is Ionic Appflow?</h2>
-      <p> is a powerful set of services and features built on top of liams.</p>
-      <ion-button color="light"  expand="block" style="margin-left: 1em ; margin-right: 1em;">Login</ion-button>
+      <img style="height: 25vh;" src="assets/img/servicios.svg" />
+      <h2>Nuestro servicios</h2>
+      <ul class="ion-text-center">
+        <li>Medicina General</li>
+        <li>Odontología</li>
+        <li>Papanicolaou</li>
+        <li>Control prenatal</li>
+        <li>
+          Control del niño sano
+        </li>
+        <li>TB</li>
+        <li>PVVS</li>
+        <li>Emergencias</li>
+
+      </ul>
+      <ion-button  routerLink="/login" color="light" expand="block" style="margin-left: 1em ; margin-right: 1em;">Login</ion-button>
     </ion-slide>
 
-    <ion-slide>
-      <img src="assets/img/calculadora.svg"/>
+    <!-- <ion-slide>
+      <img src="assets/img/calculadora.svg" />
       <h2>Ready to Play?</h2>
-      <ion-button color="light"  expand="block" style="margin-left: 1em ; margin-right: 1em;">Login</ion-button>
-    </ion-slide>
+      <ion-button color="light" expand="block" style="margin-left: 1em ; margin-right: 1em;">Login</ion-button>
+    </ion-slide> -->
     <div class="swiper-pagination"></div>
   </ion-slides>
   <!-- Add Pagination -->
-  
+
   <!-- Add Arrows -->
   <div class="swiper-button-next swiper-button-white" style="color: white;"></div>
   <div class="swiper-button-prev swiper-button-white"></div>

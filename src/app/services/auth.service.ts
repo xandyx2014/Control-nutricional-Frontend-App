@@ -17,38 +17,40 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private notificacionService: NotificacionService
+    private notificacionService: NotificacionService,
   ) { }
-
   async login(usuario, password) {
-      this.http.post(`${this.url}/usuario/login`, {
-        usuario,
-        password
-      }).pipe(
-        catchError(e => {
-          alert(JSON.stringify(e));
-          return 'e';
-        })
-      ).subscribe(
-        async (resp: RespUsuario) => {
-          if (!resp.message) {
-            await Storage.set({
-              key: URL_USER_STORE,
-              value: JSON.stringify(resp)
-            });
-            if (resp.data.tipo === UsuarioTipo.paciente) {
-              const id = resp.paciente.id;
-              await this.router.navigate(['/home', id]);
-            } else {
-              await this.router.navigate(['/pacientes']);
-            }
+    const loading = await this.notificacionService.presentLoading();
+    this.http.post(`${this.url}/usuario/login`, {
+      usuario,
+      password
+    }).pipe(
+      catchError(e => {
+        loading.dismiss();
+        alert(JSON.stringify(e));
+        return 'e';
+      })
+    ).subscribe(
+      async (resp: RespUsuario) => {
+        await loading.dismiss();
+        if (!resp.message) {
+          await Storage.set({
+            key: URL_USER_STORE,
+            value: JSON.stringify(resp)
+          });
+          if (resp.data.tipo === UsuarioTipo.paciente) {
+            const id = resp.paciente.id;
+            await this.router.navigate(['/home', id]);
           } else {
-            this.notificacionService.presentToast(resp.message);
+            await this.router.navigate(['/pacientes']);
           }
-        },
-        (error) => {
-          alert(JSON.stringify(error));
-        });
+        } else {
+          this.notificacionService.presentToast(resp.message);
+        }
+      },
+      (error) => {
+        alert(JSON.stringify(error));
+      });
   }
   async userAuth(): Promise<RespUsuario> {
     const storage = await Storage.get({

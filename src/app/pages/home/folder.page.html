@@ -8,39 +8,48 @@
 </ion-header>
 
 <ion-content>
-  <ng-container *ngIf="historial.length; else elseTemplate">
-    <ion-list>
-      <ion-list-header>
-        Historial
-      </ion-list-header>
   
-      <ion-item *ngFor="let item of historial" (click)="irCalculo(item)">
-        
-        <ion-label>
-          <ion-text color="primary">
-            <h2> Personal medico: </h2>
-          </ion-text>
-          <h3>{{ item.Doctor.Usuario.nombre | titlecase}} {{ item.Doctor.Usuario.apellidoPaterno | titlecase}}</h3>
-          <p>Edad: {{ item.edad | date:'dd/MM/yyyy'}}</p>
-          <ion-chip color="primary">
-            <ion-label>{{ item.peso }} Kg</ion-label>
-          </ion-chip>
-          <ion-chip color="primary">
-            <ion-label>{{ item.tamagno}} cm</ion-label>
-          </ion-chip>
-        </ion-label>
-        <ion-avatar slot="end">
-          <ion-img src="assets/img/book.svg"></ion-img>
-        </ion-avatar>
-      </ion-item>
-  
-    </ion-list>
+  <ng-container *ngIf="ok; else elseTemplateLoading">
+    <ng-container *ngIf="historial.length; else elseTemplate">
+      <ion-list>
+        <ion-list-header>
+          Historial
+        </ion-list-header>
+    
+        <ion-item *ngFor="let item of historial" (click)="presentActionSheet(item)">
+          
+          <ion-label>
+            <ion-text color="primary">
+              <h2> Personal medico: </h2>
+            </ion-text>
+            <h3>{{ item.Doctor.Usuario.nombre | titlecase}} {{ item.Doctor.Usuario.apellidoPaterno | titlecase}}</h3>
+            <p>Edad: {{ item.edad | date:'dd/MM/yyyy'}}</p>
+            <p>Fecha de Registo: {{ item.createdAt | date:'dd/MM/yyyy'}}</p>
+            <ion-chip color="primary">
+              <ion-label>{{ item.peso }} Kg</ion-label>
+            </ion-chip>
+            <ion-chip color="primary">
+              <ion-label>{{ item.tamagno}} cm</ion-label>
+            </ion-chip>
+          </ion-label>
+          <ion-avatar slot="end">
+            <ion-img src="assets/img/book.svg"></ion-img>
+          </ion-avatar>
+        </ion-item>
+    
+      </ion-list>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <ion-text color="primary ion-text-center">
+          <h4>No existe historial</h4>
+        </ion-text>
+    </ng-template>
   </ng-container>
-  <ng-template #elseTemplate>
-      <ion-text color="primary ion-text-center">
-        <h4>No existe historial</h4>
-      </ion-text>
+  <ng-template #elseTemplateLoading>
+    <div class="ion-text-center"><ion-spinner style="font-size: 1.5em;"></ion-spinner></div>
+    
   </ng-template>
+  
   
   
   <ion-fab *ngIf="historial.length;" vertical="bottom" horizontal="end" slot="fixed" >

@@ -30,6 +30,10 @@
           <ion-label>Talla / Longitud</ion-label>
           <ion-badge slot="end" color="secondary">{{ historialPaciente.tamagno }} cm</ion-badge>
         </ion-item>
+        <ion-item>
+          <ion-label>Fecha Registro</ion-label>
+          <ion-badge slot="end" color="secondary">{{ historialPaciente.createdAt | date:'dd/MM/yyyy' }} </ion-badge>
+        </ion-item>
         <ion-item *ngIf="imc">
           <ion-label>Indice Masa Corporal</ion-label>
           <ion-badge slot="end" color="secondary">{{ imc }}</ion-badge>

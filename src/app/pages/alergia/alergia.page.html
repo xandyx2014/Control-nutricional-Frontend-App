@@ -12,6 +12,9 @@
     <ion-card *ngFor="let item of alergias; let i = index" mode="ios" (click)="presentActionSheet(item)">
       <ion-card-header>
         <ion-card-subtitle>N. {{ i + 1}} Alergia</ion-card-subtitle>
+        <ion-card-subtitle>
+          Fecha de Registo: {{ item.createdAt | date:'dd/MM/yyyy'}}
+        </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <ion-list>
@@ -23,6 +26,9 @@
           </ion-item>
           <ion-item>
             <ion-label color="primary">Descripcion :</ion-label>
+          </ion-item>
+          <ion-item>
+            {{ item.descripcion }}
           </ion-item>
           <ion-item>
             {{ item.descripcion }}

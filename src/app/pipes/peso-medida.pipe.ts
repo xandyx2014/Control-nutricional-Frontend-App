@@ -8,7 +8,7 @@ import { EstadoNutricion } from '../interface/user.interface';
 })
 export class PesoMedidaPipe implements PipeTransform {
 
-  transform(historial: Historial, pesoMedida: PesoMedida): EstadoNutricion {
+  transform(historial: Historial, pesoMedida: any): EstadoNutricion {
     const peso = Number(historial.peso);
     if ( peso <= Number(pesoMedida['-3'])) {
       return EstadoNutricion.grave;

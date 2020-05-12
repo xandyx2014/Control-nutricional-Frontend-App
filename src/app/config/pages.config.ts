@@ -25,5 +25,5 @@ export const PAGE_URL = [
       icon: 'exit'
     },
   ];
-export const URL_API = 'http://localhost:3000';
+export const URL_API = 'https://controluebapp.herokuapp.com';
 export const URL_USER_STORE = 'user_store_log';

@@ -113,7 +113,7 @@ export class NutricionalPage implements OnInit {
       this.nutrientes = resp;
     });
   }
-  async presentModal(nutriente: Nutriente) {
+  async presentModal() {
     const modal = await this.modalController.create({
       component: FormularioComponent,
       cssClass: 'my-custom-modal-css',

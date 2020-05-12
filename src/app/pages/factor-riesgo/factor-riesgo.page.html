@@ -12,6 +12,9 @@
     <ion-card *ngFor="let item of datas; let i = index" mode="ios" (click)="presentActionSheet(item)">
       <ion-card-header>
         <ion-card-subtitle>N. {{ i + 1}} Factor Riesgo</ion-card-subtitle>
+        <ion-card-subtitle>
+          Fecha de Registo: {{ item.createdAt | date:'dd/MM/yyyy'}}
+        </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <ion-list>

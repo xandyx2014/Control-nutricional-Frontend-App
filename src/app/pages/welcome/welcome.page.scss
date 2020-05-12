@@ -31,3 +31,9 @@ ion-slides {
   p b {
     color: var(--ion-text-color, #000000);
   }
+  ul {
+    list-style: none;
+  }
+  li {
+    font-size: 0.8em;
+  }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ToastController, AlertController } from '@ionic/angular';
-interface presentAlertData {
+import { ToastController, AlertController, LoadingController } from '@ionic/angular';
+interface PresentAlertData {
   header: string;
   message: string;
   okCallback?: () => void;
@@ -13,7 +13,8 @@ export class NotificacionService {
 
   constructor(
     private toastController: ToastController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private loadingController: LoadingController
   ) { }
   async presentToast(message) {
     const toast = await this.toastController.create({
@@ -22,7 +23,7 @@ export class NotificacionService {
     });
     toast.present();
   }
-  async presentAlertConfirm(data: presentAlertData) {
+  async presentAlertConfirm(data: PresentAlertData) {
     const alert = await this.alertController.create({
       header: data.header,
       message: data.message,
@@ -40,5 +41,14 @@ export class NotificacionService {
     });
 
     await alert.present();
+  }
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Cargando...',
+      duration: 2000
+    });
+    await loading.present();
+    return loading;
+    // console.log('Loading dismissed!');
   }
 }
