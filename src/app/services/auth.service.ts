@@ -40,9 +40,9 @@ export class AuthService {
           });
           if (resp.data.tipo === UsuarioTipo.paciente) {
             const id = resp.paciente.id;
-            await this.router.navigate(['/home', id]);
+            await this.router.navigate(['/home', id], { skipLocationChange: true});
           } else {
-            await this.router.navigate(['/pacientes']);
+            await this.router.navigate(['/pacientes'], { skipLocationChange: true});
           }
         } else {
           this.notificacionService.presentToast(resp.message);

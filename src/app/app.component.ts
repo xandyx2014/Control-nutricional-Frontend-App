@@ -52,4 +52,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
   }
+  irWelcome() {
+    this.router.navigate(['/welcome'], {replaceUrl: true});
+  }
 }

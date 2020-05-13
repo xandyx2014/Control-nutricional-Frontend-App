@@ -23,7 +23,7 @@ export class PacientesPage implements OnInit {
   ngOnInit() {
     this.authService.isDoctor();
   }
-  async ionViewWillEnter() {
+  ionViewWillEnter() {
     this.menuCtrl.enable(true);
     this.pacienteService.mostrarTodos().subscribe( (resp) => {
       this.pacientes = resp.data;
