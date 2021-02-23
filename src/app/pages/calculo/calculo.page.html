@@ -16,27 +16,27 @@
       <ion-list>
         <ion-item>
           <ion-label>Edad en meses</ion-label>
-          <ion-badge slot="end" color="secondary">{{ edadMeses(historialPaciente.edad)}}</ion-badge>
+          <ion-badge slot="end" color="success">{{ edadMeses(historialPaciente.edad)}}</ion-badge>
         </ion-item>
         <ion-item>
           <ion-label>Genero</ion-label>
-          <ion-badge slot="end" color="secondary">{{ historialPaciente.genero | titlecase}}</ion-badge>
+          <ion-badge slot="end" color="success">{{ historialPaciente.genero | titlecase}}</ion-badge>
         </ion-item>
         <ion-item>
           <ion-label>Peso</ion-label>
-          <ion-badge slot="end" color="secondary">{{ historialPaciente.peso}} Kg</ion-badge>
+          <ion-badge slot="end" color="success">{{ historialPaciente.peso}} Kg</ion-badge>
         </ion-item>
         <ion-item>
           <ion-label>Talla / Longitud</ion-label>
-          <ion-badge slot="end" color="secondary">{{ historialPaciente.tamagno }} cm</ion-badge>
+          <ion-badge slot="end" color="success">{{ historialPaciente.tamagno }} cm</ion-badge>
         </ion-item>
         <ion-item>
           <ion-label>Fecha Registro</ion-label>
-          <ion-badge slot="end" color="secondary">{{ historialPaciente.createdAt | date:'dd/MM/yyyy' }} </ion-badge>
+          <ion-badge slot="end" color="success">{{ historialPaciente.createdAt | date:'dd/MM/yyyy' }} </ion-badge>
         </ion-item>
         <ion-item *ngIf="imc">
           <ion-label>Indice Masa Corporal</ion-label>
-          <ion-badge slot="end" color="secondary">{{ imc }}</ion-badge>
+          <ion-badge slot="end" color="success">{{ imc }}</ion-badge>
         </ion-item>
       </ion-list>
     </ion-card-content>

@@ -13,8 +13,7 @@ export class NutribebePage implements OnInit {
   ngOnInit() {
   }
   ionViewWillEnter() {
-    this.viewer = new Viewer(document.getElementById('images'), {
-    });
+    this.viewer = new Viewer(document.getElementById('images'));
   }
   mostrarImagen() {
     this.viewer.show();

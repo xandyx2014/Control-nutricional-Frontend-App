@@ -6,30 +6,29 @@
         <!-- <img src="assets/img/calculadora.svg"/> -->
         <!-- <ion-img style="height: 150px;"></ion-img> -->
         <img src="assets/logo_app.png" alt="" srcset="" style="border-radius: 10px;">
-        <h2>Bienvenido</h2>
-        <p>Su salud es nuestra prioridad.</p>
+        <h2 class="titulo">Bienvenido</h2>
+        <p class="subtitulo">¡Su salud es nuestra prioridad.!</p>
         <ion-button routerLink="/login" color="light" expand="block" style="margin-left: 1em ; margin-right: 1em;">Login
         </ion-button>
       </div>
     </ion-slide>
 
     <ion-slide>
-      <img src="assets/img/online_information_4ui6.svg" style="height: 25vh; margin-bottom: 0.5em;" />
-      <h2>¿Quienes somos?</h2>
-      <p>Es un centro de salud de primer nivel, cuya finalidad es la promover estilos de vida saludables para el
-        mantenimiento de la salud y la prevención de las enfermedades en los habitantes que, como usted pertenecen a las
-        UV 15, 16 Y 18.
-        ¡Recuerde que la prevención es la mejor medicina! ...
+      <img src="assets/img/hospital.svg" style="height: 20vh; margin-bottom: 0;" />
+      <h2 class="titulo">¿Quienes somos?</h2>
+      <p class="subtitulo">El Centro de Salud Los Olivos es un centro de salud de primer nivel, cuya finalidad es la
+        promover estilos de vida saludables para el mantenimiento de la salud y la prevencion de las enfermedades en los
+        habitantes que, como usted pertenecen a las UV 15, 16 y 18. ¡Recuerda que la prevencion es la mejor medicina!
       </p>
       <ion-button routerLink="/login" color="light" expand="block" style="margin-left: 1em ; margin-right: 1em;">Login
       </ion-button>
     </ion-slide>
 
     <ion-slide>
-      <img style="height: 25vh;" src="assets/img/servicios.svg" />
-      <h2>Nuestro servicios</h2>
-      <ul class="ion-text-center">
-        <li>Medicina General</li>
+      <img style="height: 20vh;" src="assets/img/assistant.svg" />
+      <h2 class="titulo">Nuestro servicios</h2>
+      <ul class="ion-text-center" style="margin-left: 0 !important;" >
+        <li >Medicina General</li>
         <li>Odontología</li>
         <li>Papanicolaou</li>
         <li>Control prenatal</li>
@@ -41,9 +40,24 @@
         <li>Emergencias</li>
 
       </ul>
-      <ion-button  routerLink="/login" color="light" expand="block" style="margin-left: 1em ; margin-right: 1em;">Login</ion-button>
+      <ion-button routerLink="/login" color="light" expand="block" style="margin-left: 1em ; margin-right: 1em;">Login
+      </ion-button>
     </ion-slide>
-
+    <ion-slide (click)="mostrarImagen()"> 
+      <h2 class="titulo ion-margin-top" style="margin-top: 1em !important;">Pregunta frecuentes <br> ¿Que es el SUS?</h2>
+      <img  style="height: 80vh; margin-top: 1em;" src="assets/img/sus.jpg" id="images" />
+    </ion-slide>
+    <ion-slide> 
+      <h2 class="titulo ion-margin-top" style="margin-top: 1em !important;font-size: 1em; line-height: 1.5;">
+        Contactenos <br>
+        (+591) 33563660 <br>
+        Línea Gratuita <br>
+        800100070 <br>
+        5RC9+Fj Santa cruz de <br>
+        la Sierra
+      </h2>
+      <img  style="height: 80vh; margin-top: 0;" src="assets/img/logo_SUS.jpg" id="images" />
+    </ion-slide>
     <!-- <ion-slide>
       <img src="assets/img/calculadora.svg" />
       <h2>Ready to Play?</h2>
