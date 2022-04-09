@@ -32,7 +32,7 @@
     "flatpickr": "^4.6.3",
     "lodash.isempty": "^4.4.0",
     "mapbox-gl": "^1.10.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ng2-charts": "^2.3.0",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
